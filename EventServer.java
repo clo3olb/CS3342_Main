@@ -3,11 +3,12 @@ import Auth.*;
 
 class EventServer {
     private static final EventServer theEventServer = new EventServer();
-    private ArrayList<Event> allEvents = new ArrayList<>();
+    private static ArrayList<Organizing> allOrganizes;
 
     //===============
 
     private EventServer() {
+        allOrganizes = new ArrayList<>();
     }
 
     public static EventServer getInstance() {
@@ -16,9 +17,8 @@ class EventServer {
 
     //===============
 
-    static void createEvent(Auth a) {
-        if(!a.isOrganizer()) {
-
-        }
+    public void createEvent(Auth a, Organizer o, Event e) {
+        if(!a.isOrganizer()) { return; } //Authentication
+        allOrganizes.add(new Organizing(o, e));
     }
 }
