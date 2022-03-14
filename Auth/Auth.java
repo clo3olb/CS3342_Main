@@ -1,6 +1,6 @@
 package Auth;
 
-class Auth {
+public class Auth {
     private String email;
     private String password;
     private UserType type;
