@@ -18,16 +18,16 @@ class Ticket {
     }
 }
 
-public class TicketServer {
+public class TicketManager {
     // Singleton
-    private static final TicketServer theTicketServer = new TicketServer();
+    private static final TicketManager theTicketServer = new TicketManager();
 
     private ArrayList<AuthData> authDB = new ArrayList<AuthData>();
 
-    private TicketServer() {
+    private TicketManager() {
     }
 
-    static TicketServer getInstance() {
+    static TicketManager getInstance() {
         return theTicketServer;
     }
 

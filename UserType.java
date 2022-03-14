@@ -1,4 +1,3 @@
-package Auth;
 
 interface UserType {
     public String getType();

@@ -1,4 +1,3 @@
-package Auth;
 
 public class Auth {
     private String email;

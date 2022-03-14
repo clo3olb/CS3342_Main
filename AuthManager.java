@@ -1,17 +1,16 @@
-package Auth;
 
 import java.util.ArrayList;
 
-class Server {
+public class AuthManager {
     // Singleton
-    private static final Server theAuthServer = new Server();
+    private static final AuthManager theAuthServer = new AuthManager();
 
     private ArrayList<Auth> authDB = new ArrayList<Auth>();
 
-    private Server() {
+    private AuthManager() {
     }
 
-    public static Server getInstance() {
+    public static AuthManager getInstance() {
         return theAuthServer;
     }
 
@@ -23,9 +22,4 @@ class Server {
         }
         return null;
     }
-
-    // public boolean register(String email, String password) {
-
-    // }
-
 }
