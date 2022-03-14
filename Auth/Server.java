@@ -2,46 +2,30 @@ package Auth;
 
 import java.util.ArrayList;
 
-class AuthData {
-    private Auth auth;
-    private UserType type;
-    private String userId;
-
-    AuthData(Auth auth, UserType type, String userId) {
-        this.auth = auth;
-        this.type = type;
-        this.userId = userId;
-    }
-
-    public UserType authenticate(Auth theAuth) {
-        if (!this.auth.getEmail().equals(theAuth.getEmail()))
-            return null;
-        if (!this.auth.getPassword().equals(theAuth.getPassword()))
-            return null;
-        return this.type;
-    }
-}
-
-public class Server {
+class Server {
     // Singleton
     private static final Server theAuthServer = new Server();
 
-    private ArrayList<AuthData> authDB = new ArrayList<AuthData>();
+    private ArrayList<Auth> authDB = new ArrayList<Auth>();
 
     private Server() {
     }
 
-    static Server getInstance() {
+    public static Server getInstance() {
         return theAuthServer;
     }
 
-    public UserType authenticate(Auth auth) {
-        for (AuthData authData : authDB) {
-            UserType userType = authData.authenticate(auth);
-            if (userType != null) {
-                return userType;
+    public Auth authenticate(String email, String password) {
+        for (Auth auth : authDB) {
+            if (auth.authenticate(email, password)) {
+                return auth;
             }
         }
         return null;
     }
+
+    // public boolean register(String email, String password) {
+
+    // }
+
 }

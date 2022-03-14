@@ -3,38 +3,29 @@ package Auth;
 class Auth {
     private String email;
     private String password;
+    private UserType type;
 
-    Auth(String email, String password) {
+    Auth(String email, String password, UserType type) {
         this.email = email;
         this.password = password;
+        this.type = type;
     }
 
-    public String getEmail() {
-        return email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    private boolean checkType(String typeName) {
-        UserType userType = Server.getInstance().authenticate(this);
-        if (userType == null)
-            return false;
-        if (userType.getType().equals(typeName))
+    public boolean authenticate(String email, String password) {
+        if (this.email.equals(email) && this.password.equals(password))
             return true;
         return false;
     }
 
     public boolean isCustomer() {
-        return checkType("Customer");
+        return this.type.getType().equals("Customer");
     }
 
     public boolean isOrganizer() {
-        return checkType("Organizer");
+        return this.type.getType().equals("Organizer");
     }
 
     public boolean isAdministrator() {
-        return checkType("Administrator");
+        return this.type.getType().equals("Administrator");
     }
 }
