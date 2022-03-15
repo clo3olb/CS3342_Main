@@ -1,32 +1,37 @@
-import java.util.ArrayList;
-
-class Register implements AppFunction {
-
-    @Override
-    public boolean authenticate() {
-        auth.isBanned();
-        return auth.isAdministrator();
-    }
-
-    @Override
-    public void execute() {
-        authenticate();
-
-    }
-}
 
 interface AppFunction {
-    public boolean authenticate(Auth auth);
-
     public void execute();
 }
 
-public class App {
-    private User user;
-    private ArrayList<AppFunction> functions = new ArrayList<AppFunction>();
-
-    public ArrayList<AppFunction> listFunctions () {
-    if user.type   == OrganizerType 
-        filter(ArrayList<AppFunction>);
+abstract class OrganizerFunction implements AppFunction {
+    abstract public void execute();
 }
+
+class CreateEvent extends OrganizerFunction {
+    @Override
+    public void execute() {
+        // Prompt required information for creating an event.
+        // Create Event
+    }
+}
+
+public class App {
+    private Auth auth;
+
+    App() {
+        // null auth indicates "Not signed in"
+        this.auth = null;
+    }
+
+    public void login(String email, String password) {
+        this.auth = Auth.get(email, password);
+    }
+
+    public void execute(AppFunction function) {
+        function.execute();
+    }
+
+    public void test() {
+        execute(new CreateEvent());
+    }
 }

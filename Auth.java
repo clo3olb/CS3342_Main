@@ -5,7 +5,7 @@ public class Auth {
     private AuthType type;
     private String userId;
 
-    Auth(String email, String password, AuthType type, String userId) {
+    private Auth(String email, String password, AuthType type, String userId) {
         this.email = email;
         this.password = password;
         this.type = type;
@@ -16,25 +16,8 @@ public class Auth {
         return userId;
     }
 
-    public boolean authenticate(Auth auth) {
-        return authenticate(auth.email, auth.password);
-    }
-
-    public boolean authenticate(String email, String password) {
-        if (this.email.equals(email) && this.password.equals(password))
-            return true;
-        return false;
-    }
-
-    public boolean isCustomer() {
-        return this.type.getType().equals("Customer");
-    }
-
-    public boolean isOrganizer() {
-        return this.type.getType().equals("Organizer");
-    }
-
-    public boolean isAdministrator() {
-        return this.type.getType().equals("Administrator");
+    static Auth get(String email, String password) {
+        // get Authentication information from server.
+        return null;
     }
 }
