@@ -1,9 +1,16 @@
 
 interface AppFunction {
+    public boolean authenticate(Auth auth);
+
     public void execute();
 }
 
 abstract class OrganizerFunction implements AppFunction {
+    public boolean authenticate(Auth auth) {
+        // Checks whether the auth is OrganizerAuth.
+        return auth instanceof OrganizerAuth;
+    }
+
     abstract public void execute();
 }
 
@@ -12,6 +19,23 @@ class CreateEvent extends OrganizerFunction {
     public void execute() {
         // Prompt required information for creating an event.
         // Create Event
+    }
+}
+
+abstract class AdministratorFunction implements AppFunction {
+    public boolean authenticate(Auth auth) {
+        // Checks whether the auth is AdministratorAuth.
+        return auth instanceof AdministratorAuth;
+    }
+
+    @Override
+    abstract public void execute();
+}
+
+class BanEvent extends AdministratorFunction {
+    @Override
+    public void execute() {
+        // Ban an event that is not appropriate to display.
     }
 }
 
@@ -28,10 +52,8 @@ public class App {
     }
 
     public void execute(AppFunction function) {
-        function.execute();
-    }
-
-    public void test() {
-        execute(new CreateEvent());
+        if (function.authenticate(this.auth)) {
+            function.execute();
+        }
     }
 }
