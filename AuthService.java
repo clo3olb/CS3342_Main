@@ -1,16 +1,16 @@
 
 import java.util.ArrayList;
 
-public class AuthManager {
+public class AuthService {
     // Singleton
-    private static final AuthManager theAuthServer = new AuthManager();
+    private static final AuthService theAuthServer = new AuthService();
 
     private ArrayList<Auth> authDB = new ArrayList<Auth>();
 
-    private AuthManager() {
+    private AuthService() {
     }
 
-    public static AuthManager getInstance() {
+    public static AuthService getInstance() {
         return theAuthServer;
     }
 
