@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import java.util.ArrayList;
 
 abstract class UserFunction {
@@ -34,4 +35,8 @@ abstract class CustomerFunction extends UserFunction {
 
 abstract class OrganizerFunction extends CustomerFunction implements UserFunction {
     abstract public void execute();
+=======
+public class User {
+    //just a dummy class
+>>>>>>> 299539ca5acd18eef82e918a144e7f4d54131a58
 }
