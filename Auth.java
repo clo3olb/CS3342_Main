@@ -2,12 +2,22 @@
 public class Auth {
     private String email;
     private String password;
-    private UserType type;
+    private AuthType type;
+    private String userId;
 
-    Auth(String email, String password, UserType type) {
+    Auth(String email, String password, AuthType type, String userId) {
         this.email = email;
         this.password = password;
         this.type = type;
+        this.userId = userId;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public boolean authenticate(Auth auth) {
+        return authenticate(auth.email, auth.password);
     }
 
     public boolean authenticate(String email, String password) {

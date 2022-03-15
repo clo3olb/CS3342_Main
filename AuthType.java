@@ -1,21 +1,21 @@
 
-interface UserType {
+interface AuthType {
     public String getType();
 }
 
-class CustomerType implements UserType {
+class CustomerType implements AuthType {
     public String getType() {
         return "Customer";
     }
 }
 
-class OrganizerType implements UserType {
+class OrganizerType implements AuthType {
     public String getType() {
         return "Organizer";
     }
 }
 
-class AdministratorType implements UserType {
+class AdministratorType implements AuthType {
     public String getType() {
         return "Administrator";
     }
