@@ -12,7 +12,7 @@ class TicketService implements ServiceInterface {
     }
 
     @Override
-    public void createAsset() {
+    public void createAsset(String userId) {
         // Create Ticket Object
     }
 

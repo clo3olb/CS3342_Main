@@ -1,5 +1,7 @@
 public class Ticket implements Asset {
+    String id;
+    
     public boolean compareID(String id) {
-        return false;
+        return this.id.equals(id);
     }
 }

@@ -15,7 +15,7 @@ class EventService implements ServiceInterface { //Apply DIP
     }
 
     @Override
-    public void createAsset() {
+    public void createAsset(String userId) {
         // get user input to create Event, Ticket, etc...
         // save the asset into ArrayList
     }

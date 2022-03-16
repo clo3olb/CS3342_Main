@@ -19,6 +19,7 @@ class CreateEvent extends OrganizerFunction {
     public void execute() {
         // Prompt required information for creating an event.
         // Create Event
+        EventService.getInstance().createAsset();
     }
 }
 
