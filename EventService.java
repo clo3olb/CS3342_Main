@@ -15,25 +15,25 @@ class EventService implements ServiceInterface { //Apply DIP
     }
 
     @Override
-    public void create() {
+    public void createAsset() {
         // get user input to create Event, Ticket, etc...
         // save the asset into ArrayList
     }
 
     @Override
-    public Searchable searchByID(String id) {
+    public Asset searchByID(String id) {
         // return the found asset
         return null;
     }
 
     @Override
-    public ArrayList<Searchable> getUserAssets(String userId) {
+    public ArrayList<Asset> getUserAssets(String userId) {
         // search from allEvents and make a new ArrayList
         // return all the assets as an ArrayList that are of user's
         return null;
     }
 
-    public ArrayList<Searchable> getRecommandedEvents(String userId) {
+    public ArrayList<Asset> getRecommandedEvents(String userId) {
         // return recommended assets based on user (location & prefereces)
         return null;
     }
