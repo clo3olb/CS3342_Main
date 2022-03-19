@@ -52,6 +52,10 @@ public class App {
         this.auth = Auth.get(email, password);
     }
 
+    public void logout() {
+        this.auth = null;
+    }
+
     public void execute(AppFunction function) {
         if (function.authenticate(this.auth)) {
             function.execute();
